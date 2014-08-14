@@ -98,6 +98,7 @@ class WingedObject
 	def format_styles
 		style_string = ''
 		@styles.each do |key, value|
+			key = key.to_s.gsub '_', '-'
 			style_string += "#{key}:#{value};"
 		end
 		style_string

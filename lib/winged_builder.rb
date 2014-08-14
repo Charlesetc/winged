@@ -29,14 +29,13 @@ class WingedBuilder
 		box-sizing:border-box;
 		font-size: 100%;
 		font:inherit;
-		display:block;
 	  }
 		ol, ul {
 			list-style: none;
 		}
 		p, span {
 		display:inline
-		
+		}
 		.stack > * {
 			display:block
 		}

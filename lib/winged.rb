@@ -1,6 +1,6 @@
-Dir[File.dirname(__FILE__) + "/winged_*.rb"].each { |file| require file }
-Dir[File.dirname(__FILE__) + "/objects/winged_*.rb"].each { |file| require file }
 
+require_relative './environment'
+require_relative '../app/route'
 
 module Winged
 	
@@ -10,12 +10,25 @@ module Winged
 		self.method(:start)
 	end
 	
-	def start(environment)
-		[
-			200,
-			{"Content-Type" => "text/plain"},
-			["Hello. The time is #{Time.now}"]
-		]
+	# Make your own static files server.
+	
+	def start(env)
+		request = Rack::Request.new(env)
+		
+		@route = WingedRouter.route(env['PATH_INFO'])
+		if @route
+			[
+				200,
+				{"Content-Type" => "text/html"},
+				[render(@route)]
+			]
+		else
+			[
+				404,
+				{"Content-Type" => "text/plain"},
+				["404 ERROR"]
+			]
+		end
 	end
 	
 	def stack(styles = {})
@@ -27,6 +40,14 @@ module Winged
 		@@tree.back
 		
 	end
+	
+	def render(route)
+		require_relative route
+		w = WingedBuilder.new @@tree.root
+		
+		return w.to_html
+	end
+	
 	
 end
 

@@ -1,20 +1,24 @@
 require_relative './winged'
 
-module WingedRouter
+class WingedRouter
 	
 	@@paths = {}
 	
+	def initialize
+		yield(self)
+	end
+	
+	def self.route(path)
+		if @@paths[path]
+			('../app/paths/' + (@@paths[path]) + '.rb')
+		else
+			nil
+		end
+	end
+
 	def get(path, action)
 		@@paths[path] = action
 		# yeild if block_given?
 	end
-	
-	# def post(path, action)
-	# 	# yeild if block_given?
-	# end
-	
-	def route(path)
-		(@@paths[path] + '.rb')
-	end
-	
+
 end
