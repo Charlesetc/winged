@@ -23,21 +23,3 @@ module Winged
 
 	end
 end
-
-
-# module Winged
-#
-# 	module WingedLink
-#
-# 		def link(styles = {})
-#
-# 			@@tree.add styles, 'div'
-#
-# 			yield if block_given?
-#
-# 			@@tree.back
-#
-# 		end
-#
-# 	end
-# end

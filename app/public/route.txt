@@ -1,4 +1,0 @@
-
-include WingedRouter
-
-get '/hello', 'main'

@@ -29,12 +29,10 @@ class WingedObject
 	
 	def compile_classes
 		
-		user_classes = @attributes[:class]
+		user_classes = @attributes[:class] || ''
 		
-		@classes.each	do |the_class|
-			user_clases += (' ' + the_class)
-		end
-		user_classes
+		artificial_classes = @classes.join(' ')
+		@attributes[:class] = artificial_classes + ' ' + user_classes
 	end
 
 	def add_class(user_class)
@@ -79,8 +77,8 @@ class WingedObject
 		unless formatted_styles.empty?
 			node[:style] = formatted_styles
 		end
-		
-		compile_classes
+				#
+		# @attributes[:class] = compile_classes
 		
 		@attributes.each do |attribute, value|
 			node[attribute] = value

@@ -1,10 +1,8 @@
 
 require_relative './environment'
-require_relative '../app/route'
+load 'app/route.rb' # Might not work
 
 module Winged
-	
-	@@tree
 	
 	def self.init
 		self.method(:start)
@@ -25,10 +23,14 @@ module Winged
 		else
 			[
 				404,
-				{"Content-Type" => "text/plain"},
-				["404 ERROR"]
+				{"Content-Type" => "text/html"},
+				["<html>
+	<head><title>404</title><style>body{text-align:center;padding:60px}</style></head>
+	<body><h1>404 Error</h1><p>Page not found.</p></body>
+</html>"]
 			]
 		end
+		
 	end
 	
 	def stack(styles = {})

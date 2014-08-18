@@ -36,11 +36,11 @@ class WingedBuilder
 		p, span {
 		display:inline
 		}
-		.stack > * {
+		.winged_stack > * {
 			display:block
 		}
 		
-		.flow > * {
+		.winged_flow > * {
 			display:inline-block
 		}
 		'
