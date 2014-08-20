@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "winged"
-  spec.version       = '1.0.0'
+  spec.version       = '1.1.0'
   spec.authors       = ["Charles Chamberlain"]
   spec.email         = ["charles@charlesetc.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Winged Shoes is a rough implementation of the Shoes GUI for the web. It takes a Ruby DSL as input and writes HTML, CSS, and Javascript.}
+  spec.summary       = %q{Winged: Flying Web Development}
   spec.homepage      = "https://github.com/Charlesetc/winged"
   spec.license       = "MIT"
   spec.files         = `git ls-files`.split($/)

@@ -1,6 +1,6 @@
 
 require_relative './environment'
-load 'app/route.rb' # Might not work
+load 'app/route.rb'
 
 module Winged
 	
@@ -44,7 +44,7 @@ module Winged
 	end
 	
 	def render(route)
-		require_relative route
+		load route
 		w = WingedBuilder.new @@tree.root
 		
 		return w.to_html

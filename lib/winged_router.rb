@@ -10,7 +10,7 @@ class WingedRouter
 	
 	def self.route(path)
 		if @@paths[path]
-			('../app/paths/' + (@@paths[path]) + '.rb')
+			(WINGED_URL + 'app/paths/' + (@@paths[path]) + '.rb')
 		else
 			nil
 		end
