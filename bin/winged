@@ -18,9 +18,9 @@ OptionParser.new do |opts|
 		exec "rackup -s puma -p #{port}"
 	end
   
-  opts.on('new NAME') do |name| # Experimental
-    File.mkdir(name)
-    File.cd name
-  end
-	
+  # opts.on('new NAME') do |name| # Experimental
+  #   File.mkdir(name)
+  #   File.cd name
+  # end
+  
 end.parse!
